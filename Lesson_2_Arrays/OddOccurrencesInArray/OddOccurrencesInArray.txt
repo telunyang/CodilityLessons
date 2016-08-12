@@ -1,0 +1,22 @@
+<?php
+function solution(&$arr)
+{
+    $count = 0;
+    for($i = 0; $i < count($arr); $i++)
+    {
+		for($j = 0; $j < count($arr); $j++)
+		{
+			if($arr[$i] == $arr[$j])
+			{
+				$count++;
+			}
+		}
+		if( $count % 2 != 0 ) return $arr[$i];
+		$count = 0;
+    }
+	return solution($arr);
+}
+$arr = array(9,3,9,3,9,7,9);
+$rs = solution($arr);
+print_r($rs);
+?>

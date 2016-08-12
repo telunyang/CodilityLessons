@@ -1,0 +1,20 @@
+<?php
+function solution(&$arr, $k)
+{
+	if($k == 0) return $arr;
+	$arr_tmp = array();
+	$tmp = $arr[count($arr)-1];
+	for($i = 1; $i < count($arr); $i++)
+	{
+		$arr_tmp[$i] = $arr[$i-1];
+	}
+	$arr_tmp[0] = $tmp;
+	$k--;
+	$arr_tmp;
+	ksort($arr_tmp);
+	$arr = $arr_tmp;
+	return solution($arr, $k);
+}
+$arr = array(3, 8, 9, 7, 6);
+$rs = solution($arr, 3);
+print_r($rs);

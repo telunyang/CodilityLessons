@@ -1,0 +1,33 @@
+<?php
+function solution(&$N) 
+{
+	$str_dec = $N;
+	$str_bin = base_convert($str_dec, 10, 2);
+	//echo $str_bin;
+	$arr = str_split($str_bin);
+	$arr_count = array();
+	$count = 0;
+	$first = $arr[0];
+	$last = $arr[count($arr)-1];
+	for($i = 1; $i < count($arr); $i++)
+	{
+		if($arr[$i] == "0")
+		{
+			$count++;
+		}
+		else if($arr[$i] == "1")
+		{
+			$arr_count[] = $count;
+			$count = 0;
+		}
+		else if($last == "1")
+		{
+			$arr_count[] = $count;
+			$count = 0;
+		}
+	}
+	return max($arr_count);
+}
+$N = 1041;
+echo solution($N);
+?>

@@ -1,0 +1,21 @@
+<?php
+function solution(&$A)
+{
+    $flag = false;
+    for($i = 1; $i <=5; $i++)
+    {
+        for($j = 0; $j < count($A); $j++)
+        {
+            if($A[$j] == $i) $flag = true;
+        }
+        if($flag == false)
+        {
+            return $i;
+        }
+        $flag = false;
+    }
+}
+
+$arr = array(2,3,1,5);
+echo solution($arr);
+?>

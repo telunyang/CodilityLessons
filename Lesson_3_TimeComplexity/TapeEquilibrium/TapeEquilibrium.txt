@@ -1,0 +1,23 @@
+<?php
+function solution(&$A)
+{
+	$p = 1;
+	$sum_left = 0;
+	$sum_right = 0;
+	$arr_tmp = array();
+	while($p < count($A))
+	{
+		for($i = 0; $i < $p; $i++) $sum_left += $A[$i];
+		for($j = $p; $j < count($A); $j++) $sum_right += $A[$j];
+		$result = abs($sum_left - $sum_right);
+		$arr_tmp[] = $result;
+		$sum_left = 0;
+		$sum_right = 0;
+		$p++;
+	}
+	sort($arr_tmp);
+	return $arr_tmp[0];
+}
+$A = array(3,1,2,4,3);
+echo solution($A);
+?>

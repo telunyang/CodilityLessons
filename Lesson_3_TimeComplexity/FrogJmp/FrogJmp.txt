@@ -1,0 +1,34 @@
+效能高的版本
+<?php
+function solution(&$x, &$y, &$d)
+{
+    $distance = $y - $x;
+	$result = (int)ceil($distance / $d);
+	return $result;
+}
+$x = 10;
+$y = 85;
+$d = 30;
+echo solution($x,$y,$d);
+?>
+
+
+
+
+效能低的版本
+<?php
+function solution(&$x, &$y, &$z)
+{
+    $count = 0;
+    while($x < $y)
+    {
+        $x += $z;
+        $count++;
+    }
+    echo $count;
+}
+$x = 10;
+$y = 85;
+$d = 30;
+solution($x,$y,$d);
+?>

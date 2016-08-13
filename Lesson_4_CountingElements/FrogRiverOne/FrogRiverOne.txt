@@ -1,0 +1,14 @@
+<?php
+function solution($X, $A)
+{
+	$arr = array();
+	for($c = 1; $c <= $X; $c++) $arr[$c] = 0;
+	for($i = 0; $i < count($A); $i++)
+	{
+		$arr[ $A[$i] ] = 1;
+		if(!in_array(0, $arr)) return $i;
+	}
+	return -1;
+}
+echo solution(5, array(1,3,1,4,2,3,5,4));
+?>
